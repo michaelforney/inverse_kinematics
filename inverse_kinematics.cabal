@@ -1,0 +1,14 @@
+Name:               InverseKinematics
+Version:            0.0
+Description:        Interactive inverse kinematics solver and animation framework
+License:            GPL
+License-file:       LICENSE
+Author:             Michael Forney
+Maintainer:         mforney@berkeley.edu
+Build-Type:         Simple
+Cabal-Version:      >=1.2
+
+Executable inverse_kinematics
+    Main-is:        Main.hs
+    Build-Depends:  base >= 3 && < 5, containers, cairo, gtk, parsec, pretty-show,
+        directory
