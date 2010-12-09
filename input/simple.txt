@@ -1,0 +1,37 @@
+[ Node
+    { rootLabel = Link
+                    { linkJoint = RevoluteJoint
+                                    0.0
+                                    6.283185307179586
+                                    1.0471975511965976
+                    , linkBody = 150.0
+                    , linkTarget = Nothing
+                    }
+    , subForest = [ Node
+                      { rootLabel = Link
+                                      { linkJoint = RevoluteJoint
+                                                      0.0
+                                                      6.283185307179586
+                                                      5.759586531581287
+                                      , linkBody = 100.0
+                                      , linkTarget = Nothing
+                                      }
+                      , subForest = [ Node
+                                        { rootLabel = Link
+                                                        { linkJoint = RevoluteJoint
+                                                                        0.0
+                                                                        6.283185307179586
+                                                                        1.5707963267948966
+                                                        , linkBody = 100.0
+                                                        , linkTarget = Just
+                                                                         ( 182.68268268268275
+                                                                         , 280.2802802802803
+                                                                         )
+                                                        }
+                                        , subForest = []
+                                        }
+                                    ]
+                      }
+                  ]
+    }
+]
