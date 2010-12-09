@@ -1,3 +1,22 @@
+{- inverse_kinematics: InverseKinematics.hs
+ -
+ - Copyright (c) 2010 Michael Forney <mforney@berkeley.org>
+ -
+ - This file is a part of inverse_kinematics.
+ -
+ - inverse_kinematics is free software; you can redistribute it and/or modify
+ - it under the terms of the GNU General Public License version 2, as published
+ - by the Free Software Foundation.
+ -
+ - inverse_kinematics is distributed in the hope that it will be useful, but
+ - WITHOUT ANY WARRANTY; without even the implied warranty of MERCHANTABILITY
+ - or FITNESS FOR A PARTICULAR PURPOSE.  See the GNU General Public License for
+ - more details.
+ -
+ - You should have received a copy of the GNU General Public License along with
+ - inverse_kinematics.  If not, see <http://www.gnu.org/licenses/>.
+ -}
+
 module InverseKinematics
     ( Joint (RevoluteJoint, PrismaticJoint), Link (Link), linkJoint, linkBody, linkTarget
     , linkTransform, inverseLinkTransform, jointTransform, bodyTransform, improve, dot ) where
