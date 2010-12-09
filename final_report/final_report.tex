@@ -1,0 +1,55 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+\usepackage{graphicx}
+\usepackage{amsmath}
+
+\title{Final Project Report}
+\author{Michael Forney \\ SID: 21392560}
+
+\begin{document}
+    \maketitle
+    \doublespacing
+
+    \section{Project Overview}
+    My final project is a interactive inverse kinematics solver, which can
+    generate simple animations by interpolating poses created manually by the
+    user, or automatically through inverse kinematics. I used a variation of the
+    cyclic coordinate descent algorithm to iteratively improve the parameters of
+    the joints, gradually converging on the best solution given a certain set of
+    constraints. My project can solve joint structures with arbitrary branching
+    at each socket (only outward branching, joints cannot reconnect further down
+    in the tree), and both revolute (rotational), and prismatic (translational)
+    joints.
+
+    \section{Cyclic Coordinate Descent}
+
+    \section{Calculating Joint Parameters}
+
+    \subsection{Revolute Joints}
+    In order to minimize the total distance between target end points $t_i$
+    and current end points (rotated by some angle $\theta$), $e_i$, I first
+    expanded the dot product to simplify the problem.
+
+    \begin{align}
+        error &= \sum_{i=1}^n ||t_i - M(\theta) e_i||^2 \\
+              &= \sum_{i=1}^n (t_i - M(\theta) e_i) \cdot (t_i - M(\theta) e_i) \\
+              &= \sum_{i=1}^n t_i \cdot t_i + (M(\theta) e_i) \cdot
+                  (M(\theta) e_i) - 2 t_i \cdot (M(\theta) e_i)
+    \end{align}
+
+    \(M(\theta)\) is an orthogonal matrix, so \(||M(\theta) e_i|| = ||e_i||\).
+    This makes \(t_i \cdot (M(\theta) e_i)\) the only part of the equation that
+    depends on \(\theta\). In order to minimise the error with respect to
+    $\theta$, we can maximise this dot product. To find the maximum, I found
+    where the derivative was $0$.
+
+    \begin{align}
+        0 &= 
+    \end{align}
+
+    \subsection{Prismatic Joints}
+
+\end{document}
+
