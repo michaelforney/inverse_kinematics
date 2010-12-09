@@ -620,6 +620,8 @@ nextFrame ui = do
 buildGUI :: IO UI
 buildGUI = do
     nodes <- read <$> (readFile =<< head <$> getArgs)
+
+    -- Basic 1
     {-
     let nodes = [ Node (Link (RevoluteJoint 0 (2 * pi) (-0.5)) 200 Nothing)
                     [ Node (Link (RevoluteJoint 0 (2 * pi) (0.25)) 200 (Just (50, 350)))
@@ -632,6 +634,23 @@ buildGUI = do
                 , Node (Link (PrismaticJoint 0 100 25) 100 Nothing)
                     [ Node (Link (RevoluteJoint 0 (2 * pi) 1) 200 (Just (150, -150))) [] ] ]
     -}
+
+    -- Humanoid
+    {-
+    let { nodes =
+        [ Node (Link (RevoluteJoint (pi / 6) (5 * pi / 6) (pi / 2)) 100 Nothing)
+            [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 2)) 75 Nothing)
+                [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 3)) 100 Nothing) [] ]
+            , Node (Link (RevoluteJoint 0 (2 * pi) (3 * pi / 2)) 75 Nothing)
+                [ Node (Link (RevoluteJoint 0 (2 * pi) (5 * pi / 3)) 100 Nothing) [] ]
+            , Node (Link (RevoluteJoint 0 (2 * pi) 0) 75 Nothing) [] ]
+        , Node (Link (RevoluteJoint 0 (2 * pi) (5 * pi / 3)) 100 Nothing)
+            [ Node (Link (RevoluteJoint 0 (2 * pi) (11 * pi / 6)) 100 Nothing) [] ]
+        , Node (Link (RevoluteJoint 0 (2 * pi) (4 * pi / 3)) 100 Nothing)
+            [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 6)) 100 Nothing) [] ] ]
+        }
+    -}
+
     putStrLn $ drawForest $ map (show <$>) nodes
 
     focus <- newIORef $ zipper nodes
