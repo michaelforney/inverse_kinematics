@@ -621,6 +621,32 @@ buildGUI :: IO UI
 buildGUI = do
     nodes <- read <$> (readFile =<< head <$> getArgs)
 
+    -- Simple
+    {-
+    let { nodes =
+        [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 3)) 150 Nothing)
+            [ Node (Link (RevoluteJoint 0 (2 * pi) (11 * pi / 6)) 100 Nothing)
+                [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 2)) 100 Nothing) [] ] ] ]
+        }
+    -}
+
+    -- Combination
+    {-
+    let { nodes =
+        [ Node (Link (RevoluteJoint 0 (2 * pi / 3) (pi / 6)) 150 Nothing)
+            [ Node (Link (RevoluteJoint 0 (2 * pi) 4.5) 100 Nothing)
+                [ Node (Link (PrismaticJoint 0 100 25) 100 Nothing)
+                    [ Node (Link (RevoluteJoint 0 (2 * pi) (5 * pi / 3)) 100 Nothing)
+                        [ Node (Link (RevoluteJoint 0 (2 * pi) (pi / 3)) 75 (Just (200, 300)))
+                            [] ]
+                    , Node (Link (RevoluteJoint 0 (2 * pi) (pi / 2)) 100 Nothing)
+                        [ Node (Link (RevoluteJoint 0 (2 * pi) (3 * pi / 2)) 150 Nothing)
+                            [ Node (Link (RevoluteJoint 0 (2 * pi) 2.4) 75 (Just (50, 200))) [] ]
+                        , Node (Link (RevoluteJoint 0 (2 * pi) (2 * pi / 3)) 100 Nothing)
+                            [ Node (Link (RevoluteJoint 0 (2 * pi) 4.4) 100 (Just (-50, 350))) [] ] ] ] ] ] ]
+        }
+    -}
+
     -- Basic 1
     {-
     let nodes = [ Node (Link (RevoluteJoint 0 (2 * pi) (-0.5)) 200 Nothing)
