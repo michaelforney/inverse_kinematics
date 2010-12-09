@@ -1,0 +1,36 @@
+\documentclass{article}
+
+\usepackage[margin=1in]{geometry}
+\usepackage{setspace}
+
+\title{Final Project - Status Update 1}
+\author{Michael Forney \\ SID: 21392560}
+
+\begin{document}
+    \maketitle
+    \doublespacing
+
+    I have just about finished implementing my algorithm for solving the
+    inverse kinematics system. I have chosen to use a variation on the cyclic
+    coordinate descent algorithm to iteratively improve the joint angles and
+    displacements, supporting constraints on the rotation of a revolute joint,
+    and the displacement of a prismatic joint.
+
+    My solution also allows for arbitrary branching from the end of a rod. It
+    works by finding the critical points of the equation representing error
+    (least squares), and then uses the point with the lowest error. I also
+    include the minimum and maximum constraint to account for the case where
+    the solution does not lie in the constraints of the joint.
+
+    I have a few bugs left to fix in my implementation of cyclic coordinate
+    descent, but it seems to be pretty close to working. I still have to work
+    on the user interface to allow users to interact with the structure to
+    specify joint angles and target joint positions. This is looking more
+    complex than I originally anticipated, but I think it will still be
+    manageable. I also need to work on loading and saving pose configurations,
+    and simple timeline editing for animations. Cairo, the vector graphics
+    library I'm using, allows for easily rendering to png images, so video
+    output (through images) will be trivial.
+
+\end{document}
+
